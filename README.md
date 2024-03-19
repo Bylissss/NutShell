@@ -1,6 +1,6 @@
 # NutShell
 
-![image](Assets/Sprites/Logo.png)
+![image](Assets/Sprites/Logo.png#center)
 
 A game made for Mini Jam #28
 
