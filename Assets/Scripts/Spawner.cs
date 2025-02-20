@@ -4,56 +4,61 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    enum CollectibleType{
+        WEEDSPRAY,
+        FERTILIZER,
+        WATERDROP
+    };
+
     [SerializeField]
-    GameObject Spray;
+    GameObject WeedSpray;
     [SerializeField]
     GameObject Fertilizer;
     [SerializeField]
     GameObject WaterDrop;
 
-    Vector3 point = new Vector3(9.0f, -3.80f, -1.0f);
-    static public bool isEnemyExists = false;
-    
-
-    private void Update()
+    private void Start()
     {
-
-        if (!isEnemyExists)
+        for (; ; )
         {
-           StartCoroutine(Wait());
+            // Spawn();
+            Debug.Log((int)Random.Range(0.0f, 0.2f));
 
         }
     }
+    //public IEnumerator Spawn;
+    //{
 
-    IEnumerator Wait()
-    {
-        yield return new WaitForSeconds(1);
-    }
 
-    void Spawn()
-    {
-        int x = Random.Range(0, 3);
 
-        switch (x)
+
+        /*int cy = (int)Random.Range(0.0f, 0.2f);
+        Debug.Log(cy);
+        switch (cy)
         {
-            case 0:
-                Instantiate(Spray);
-                Spray.transform.position = point;
-                isEnemyExists = true;
+            case (int)CollectibleType.WEEDSPRAY:
+                GameObject collect = Instantiate(WeedSpray, gameObject.transform);
+                Rigidbody2D rb2d = collect.GetComponent<Rigidbody2D>();
+                rb2d.AddForce(transform.right * -1 * Time.deltaTime, ForceMode2D.Impulse);
                 break;
-            case 1:
-                Instantiate(Fertilizer);
-                Fertilizer.transform.position = point;
-                isEnemyExists = true;
+
+            case (int)CollectibleType.FERTILIZER:
+                GameObject collect1 = Instantiate(WeedSpray, gameObject.transform);
+                Rigidbody2D rb2d1 = collect1.GetComponent<Rigidbody2D>();
+                rb2d1.AddForce(transform.right * -1 * Time.deltaTime, ForceMode2D.Impulse);
                 break;
-            case 2:
-                Instantiate(WaterDrop);
-                WaterDrop.transform.position = point;
-                isEnemyExists = true;
-                break;
-            default:
+
+            case (int)CollectibleType.WATERDROP:
+                GameObject collect2 = Instantiate(WeedSpray, gameObject.transform);
+                Rigidbody2D rb2d2 = collect2.GetComponent<Rigidbody2D>();
+                rb2d2.AddForce(transform.right * -1 * Time.deltaTime, ForceMode2D.Impulse);
                 break;
         }
-    }
 
+        yield return new WaitForSeconds((int)Random.Range(0.0f, 10.0f));
+
+        if (GameState.instance.gs != GameState.State.RUNNING) {
+            Spawn(); 
+        }*/
+    //}
 }

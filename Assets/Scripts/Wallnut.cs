@@ -23,7 +23,7 @@ public class Wallnut : MonoBehaviour
         rb2.transform.Rotate(new Vector3(0, 0, RotationSpeed * Time.deltaTime));
 
         if (Input.GetKeyDown(KeyCode.Space)){
-            Dodge();
+            
         }
 
     }
@@ -38,10 +38,5 @@ public class Wallnut : MonoBehaviour
         gameover.SetActive(true);
         Destroy(collision.gameObject);
         Destroy(gameObject);
-    }
-
-    void Dodge()
-    {
-        Debug.Log("Dodge");
     }
 }
